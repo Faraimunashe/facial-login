@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Attendance
+                <div class="btn-actions-pane-right">
+                    <div role="group" class="btn-group-sm btn-group">
+                        <button type="button" class="btn mr-2 mb-2 btn-primary" >
+                            Print Report
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table class="align-middle mb-0 table table-borderless table-striped table-hover">
+                    <thead>
+                    <tr>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Arrival</th>
+                        <th>Departure</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {% for att in attends %}
+                            <tr>
+                                <td>
+                                    {{ att['firstname'] }}
+                                </td>
+                                <td>
+                                    {{ att['lastname'] }}
+                                </td>
+                                <td>{{ att['arrival'] }}</td>
+                                <td>{{ att['depature'] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class="col-md-12">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    {{messages[0]}}
+                </div>
+            </div>
+        {% endif %}
+    {% endwith %}
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-header">Register Attendance
+                <div class="btn-actions-pane-right">
+                    <div role="group" class="btn-group-sm btn-group">
+                        <button id="btn-start" type="button" class="btn mr-2 mb-2 btn-primary">Scan</button>
+                        <button id="btn-stop" type="button" class="btn mr-2 mb-2 btn-danger">Stop</button>
+                        <button id="btn-capture" type="button" class="btn mr-2 mb-2 btn-success">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+            
+            <!-- Video Element & Canvas -->
+                <div class="play-area">
+                    <div class="play-area-sub">
+                        <video id="stream" width="100%" height="30%"></video>
+                    </div>
+                    <div class="play-area-sub">
+                    <h3>The Capture</h3>
+                    <canvas id="capture" width="320" height="240"></canvas>
+                    <div id="snapshot"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="static/attend.js"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facial - Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" type="text/css" href="static/camera.css">
+    <link href="static/main.css" rel="stylesheet">
+	<meta charset='utf-8'>
+</head>
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fa fa-exclamation-triangle"></i>
+                    {{messages[0]}}
+                </div>
+                {% endif %}
+            {% endwith %}
+        </div>
+        <div class="col-md-12">
+            <div class="main-card mb-3 card">
+                <div class="card-header">Face Recognition Login
+                    <div class="btn-actions-pane-right">
+                        <div role="group" class="btn-group-sm btn-group">
+                            <button id="btn-start" type="button" class="btn mr-2 mb-2 btn-primary">Start</button>
+                            <button id="btn-stop" type="button" class="btn mr-2 mb-2 btn-danger">Stop</button>
+                            <button id="btn-capture" type="button" class="btn mr-2 mb-2 btn-success">Login</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h3>The Stream</h3>
+                            <video id="stream" width="100%" height="90%"></video>
+                        </div>
+                        <div class="col-md-5">
+                            <h3>The Capture</h3>
+                            <canvas id="capture" width="100%" height="100%"></canvas>
+                            <div id="snapshot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="static/camera.js"></script>
+</body>
+</html>

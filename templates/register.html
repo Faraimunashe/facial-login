@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <div class="col-md-12">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <i class="fa fa-exclamation-triangle"></i>
+                {{messages[0]}}
+            </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <div class="col-md-12">
+        <div class="main-card mb-3 card">
+            <div class="card-body">
+                <h2 class="card-title">Add Employee</h2>
+                <form action="/register" method="POST" enctype="multipart/form-data">
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Username</label>
+                        <input name="name" id="Name" placeholder="e.g mceleb012" type="text" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">First Name</label>
+                        <input name="firstname" id="Name" placeholder="e.g Matthew" type="text" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Last Name</label>
+                        <input name="lastname" id="Name" placeholder="e.g Matemba" type="text" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Email Address</label>
+                        <input name="email" id="Name" placeholder="e.g Email" type="email" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Gender</label>
+                        <select name="sex" id="Name" class="form-control" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">National ID</label>
+                        <input name="natid" id="Name" placeholder="e.g 00-1122334 F78" type="text" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Phone Number</label>
+                        <input name="phone" id="Name" placeholder="e.g 0771555222" type="tel" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Salary</label>
+                        <input name="lastname" id="Name" placeholder="e.g Matemba" type="text" class="form-control" required>
+                    </div>
+                    <div class="position-relative form-group">
+                        <label for="Name" class="">Employee Image <code>.jpg, .png, .gif</code></label>
+                        <input name="file1" id="Name" type="file" class="form-control" required>
+                    </div>
+                    <button type="submit" class="mb-2 mr-2 btn btn-primary btn-lg btn-block">
+                        <i class="fa fa-save"></i>
+                        Save Employee
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
